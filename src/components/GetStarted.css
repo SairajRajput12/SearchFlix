@@ -1,0 +1,48 @@
+.intro{
+    width: 100%; 
+    height: 450px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    justify-content: center;
+    /* background-color:aqua; */
+}
+
+.intro p{
+    font-size: 17px;
+}
+
+
+.intro h1{
+    text-align: center;
+    width: 500px;
+    font-size: 45px;
+    align-self: center;
+}
+
+.user-input{
+    width: 390px;
+    height: 35px;
+    align-self: center;
+    color: gray;
+    padding: 12px; 
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.user-first-prefrence{
+    display: flex; 
+    flex-direction: row;
+    align-self: center;
+}
+
+.user-button{
+    width: 85px;
+    background-color: red; 
+    color:white;
+    border: none;
+    text-align: center;
+    padding: 5px;
+}

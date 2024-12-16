@@ -1,0 +1,117 @@
+.search-page{
+    background-color: #141414;
+    color: white; 
+    height: 100vh; 
+    width: 100vw;
+    display: flex; 
+    flex-direction: column;
+    text-align: center;
+}
+
+.navbar{
+    display: flex; 
+    flex-direction: row; 
+    background-color: #0F0F0F;
+    /* background-color: aqua; */
+}
+
+.search-input{
+    /* margin-right: 12px; */
+    height: 35px;
+    width: 210px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: whitesmoke; 
+    padding: 2px;
+    padding-left: 12px;
+}
+
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background-color: #141414; /* Netflix-style dark background */
+    color: #fff;
+  }
+  
+  /* Filter Form Container */
+  .filter-form {
+    display: flex; 
+    flex-direction: row;
+    /* max-width: 400px; */
+    width: 100vw;
+    /* margin: 20px auto; */
+    background-color: #1c1c1c;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Title Styling */
+  .filter-title {
+    text-align: center;
+    color: #e50914; /* Netflix red */
+    margin-bottom: 20px;
+  }
+  
+  /* Form Group Styling */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: 90%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+  }
+  
+  .form-group input::placeholder {
+    color: #888;
+  }
+  
+  /* Button Styling */
+  .filter-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .filter-button:hover {
+    background-color: #f40612;
+  }
+  
+
+  /* design code for movies code */
+  .movie-list{
+    margin-top: 12px;
+    display: flex; 
+    flex-direction: column;
+  }
+
+  .card-container{
+    display: flex; 
+    flex-direction: row;
+  }
+
+  .card{
+    width: 500px;
+    margin: 12px;
+    border: 2px solid black;
+  }
