@@ -6,8 +6,16 @@ import Navbar from './Navbar';
 import Filters, { dummyFilters, handleFiltersChange } from './Filter';
 import MoviesList from './Movies';
 import MovieComponent from './MovieComponent';
+import { useLocation } from 'react-router-dom';
+
+
 export default function SearchDashBoard({movieData}) {
   const [filters, setFilters] = useState(dummyFilters);
+  const location = useLocation();
+  const searchQuery = location.state?.searchQuery || ''; 
+  console.log(searchQuery); 
+
+
 
   const updateFilters = (updatedFilters) => {
     setFilters(updatedFilters);
@@ -18,18 +26,18 @@ export default function SearchDashBoard({movieData}) {
     <div className='search-page'>
 
         {/* Navbar Component */}
-        {/* <Navbar className='navbar'>
+        <Navbar className='navbar'>
             <Logo />
-        </Navbar> */}
+        </Navbar>
 
         {/* Filters Component */}
-        {/* <div className='filters-section'>
+        <div className='filters-section'>
           <Filters filters={filters} onChange={updateFilters} />
-        </div> */}
+        </div>
 
         {/* Movie List component */}
-        {/* <MoviesList /> */}
-        <MovieComponent movie={movieData} />
+        <MoviesList />
+        {/* <MovieComponent movie={movieData} /> */}
     </div>
   );
 }

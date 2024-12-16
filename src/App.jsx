@@ -1,3 +1,4 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import MovieComponent from './components/MovieComponent';
 import NetflixStartingComponent from './components/NetflixStartingComponent';
@@ -29,11 +30,15 @@ const movieData = {
 
 function App() {
   return (
-    <>
-      <NetflixStartingComponent />
-      {/* <SearchDashBoard movieData={movieData} /> */}
-      {/* <LoadingComponent /> */}
-    </>
+    <BrowserRouter>
+       <Routes>
+          <Route path='/' element={<NetflixStartingComponent/> }></Route>
+          <Route path='/search' element={<SearchDashBoard />}></Route>
+          <Route path='/error' element={<ErrorComponent />} ></Route>
+          <Route path='/loading' element={<LoadingComponent />} ></Route>
+          <Route path='/movie:id' element={<MovieComponent />} ></Route>
+       </Routes>
+    </BrowserRouter>
   );
 }
 
