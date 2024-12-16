@@ -1,7 +1,17 @@
 import React from 'react';
 import Button from '../UI/Button';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
-const MovieComponent = ({ movie }) => {
+const MovieComponent = () => {
+  const location = useLocation(); 
+  const movie = location.state.movieData; 
+  const navigate = useNavigate(); 
+
+  const goBack = () => {
+    navigate(-1);
+  }
+
+
   return (
     <div style={styles.container}>
       <div style={styles.posterContainer}>
@@ -30,7 +40,7 @@ const MovieComponent = ({ movie }) => {
               {rating.Source}: {rating.Value}
             </p>
           ))}
-        <Button style={styles.backButton}>Back</Button>
+        <Button onClick={goBack} style={styles.backButton}>Back</Button>
         </div>
       </div>
     </div>

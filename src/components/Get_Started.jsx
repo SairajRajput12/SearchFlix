@@ -7,12 +7,12 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Get_Started() {
   const navigate = useNavigate(); 
-  const [searchInput, setSearchInput] = useState(''); // Track user input
+  const [searchInput, setSearchInput] = useState(''); 
 
   const submitPreference = (e,searchInput) => {
     e.preventDefault(); 
     if (searchInput.trim()) {
-      navigate('/search', { state: { searchQuery: searchInput } }); // Pass the input as state
+      navigate(`/search/${searchInput}`, { state: { searchQuery: searchInput } });
     } else {
       alert('Please enter a search query.');
     }

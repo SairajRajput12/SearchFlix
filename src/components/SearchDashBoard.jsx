@@ -15,7 +15,7 @@ export default function SearchDashBoard({movieData}) {
   const searchQuery = location.state?.searchQuery || ''; 
   console.log(searchQuery); 
 
-
+  
 
   const updateFilters = (updatedFilters) => {
     setFilters(updatedFilters);
@@ -36,7 +36,7 @@ export default function SearchDashBoard({movieData}) {
         </div>
 
         {/* Movie List component */}
-        <MoviesList />
+        <MoviesList searchQuery={searchQuery} />
         {/* <MovieComponent movie={movieData} /> */}
     </div>
   );
