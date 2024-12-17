@@ -25,14 +25,46 @@ export default function Get_Started() {
     return () => clearInterval(interval); // Cleanup on component unmount
   }, [textArray.length]);
 
-  const submitPreference = (e, searchInput) => {
+  const getData = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/fetch_request', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ title: searchInput }),
+      });
+  
+      if (!response.ok) {
+        // Handle HTTP errors
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const result = await response.json();
+      console.log(result);
+      return result; // Return the result if needed
+    } catch (error) {
+      console.error('An error has occurred:', error);
+      // Handle the error appropriately in your UI
+    }
+  };
+  
+
+  const submitPreference = async (e) => {
     e.preventDefault();
     if (searchInput.trim()) {
-      navigate(`/search/${searchInput}`, { state: { searchQuery: searchInput } });
+      try {
+        const data = await getData(); 
+        navigate(`/search/${searchInput}`, { state: { searchQuery: searchInput, data:data.data } });
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        navigate(`/search/${searchInput}`, { state: { searchQuery: searchInput, data:undefined } });
+      }
     } else {
       alert('Please enter a search query.');
     }
   };
+  
 
   return (
     <div className='intro'>
