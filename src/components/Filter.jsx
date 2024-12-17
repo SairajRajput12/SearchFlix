@@ -1,8 +1,9 @@
 // Import necessary libraries
 import React from 'react';
 import './Filters.css'; // Ensure you style the component
+import Button from '../UI/Button';
 
-const Filters = ({ filters, onChange }) => {
+const Filters = ({submitFilter, filters, onChange }) => {
   return (
     <div className="filters-container">
 
@@ -55,30 +56,23 @@ const Filters = ({ filters, onChange }) => {
 
       {/* Actors Filter */}
       <div className="filter-group">
-        <label htmlFor="actors">Actors</label>
+        <label htmlFor="actors">Title</label>
         <input
           type="text"
           id="actors"
           name="actors"
           value={filters.actors || ''}
           onChange={(e) => onChange({ ...filters, actors: e.target.value })}
-          placeholder="e.g., Leonardo DiCaprio"
+          placeholder="e.g., Pushpa"
         />
       </div>
+
+      <Button onClick={() => submitFilter(filters)} className='filter-button' >Apply</Button>
     </div>
   );
 };
 
 export default Filters;
 
-// Dummy Data and Usage Example
-export const dummyFilters = {
-  year: 2021,
-  rating: 8.5,
-  genre: 'action',
-  actors: 'Leonardo DiCaprio',
-};
 
-export const handleFiltersChange = (updatedFilters) => {
-  console.log('Updated Filters:', updatedFilters);
-};
+

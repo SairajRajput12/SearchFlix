@@ -1,7 +1,7 @@
 .filters-container {
     display: flex; 
     flex-direction: row;
-    width: 100%;
+    width: 99vw;
     background-color: #1c1c1c;
     padding: 20px;
     border-radius: 8px;
@@ -14,7 +14,7 @@
   
   .filter-group {
     margin-bottom: 15px;
-    width: 100%;
+    width: 90%;
   }
   
   .filter-group label {
@@ -25,7 +25,7 @@
   
   .filter-group input,
   .filter-group select {
-    width: 100%;
+    width: 90%;
     padding: 10px;
     border: none;
     border-radius: 4px;
@@ -38,3 +38,21 @@
     color: #888;
   }
   
+
+  .filter-button{
+    height: 50px; 
+    width: auto; 
+    padding: 12px;
+    margin-right: 12px;
+    background-color: black; 
+    color: #e50914;
+    align-self: center;
+    text-align: center;
+  }
+
+
+  .filter-button:hover{
+    border:1px solid #e50914;
+    background-color: black; 
+    color: #e50914;
+  }
