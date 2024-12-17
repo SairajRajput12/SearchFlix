@@ -1,6 +1,6 @@
 // Import necessary libraries
 import React from 'react';
-import './Filters.css'; // Ensure you style the component
+import './Filters.css';
 import Button from '../UI/Button';
 
 const Filters = ({submitFilter, filters, onChange }) => {
