@@ -9,7 +9,7 @@ import MovieComponent from './MovieComponent';
 import { useLocation } from 'react-router-dom';
 
 
-export default function SearchDashBoard({movieData}) {
+export default function SearchDashBoard() {
   const [filters, setFilters] = useState(dummyFilters);
   const location = useLocation();
   const searchQuery = location.state?.searchQuery || ''; 
