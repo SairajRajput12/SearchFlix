@@ -21,11 +21,13 @@ export default function Get_Started() {
     const interval = setInterval(() => {
       setCurrentText((prevText) => (prevText + 1) % textArray.length);
     }, 3000);
-
-    return () => clearInterval(interval); // Cleanup on component unmount
-  }, [textArray.length]);
+  
+    return () => clearInterval(interval);
+  }, []); // Removed unnecessary dependency
+  
 
   const getData = async () => {
+    console.log('fetching data'); 
     try {
       const response = await fetch('http://localhost:3000/fetch_request', {
         method: 'POST',

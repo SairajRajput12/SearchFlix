@@ -194,7 +194,7 @@ export default function SearchDashBoard() {
     }
   );
 
-  const [movieData,setMovieData] = useState([]);
+  const [movieData,setMovieData] = useState(moviesDs);
   
   const updateMovieData = (data) => {
       setMovieData(data); 
@@ -211,44 +211,43 @@ export default function SearchDashBoard() {
     setFilters(updatedFilters);
   };
 
-  const sendToBackend = async({actors,genre,year}) =>{
-
-    console.log(actors,genre,year); 
+  const sendToBackend = async ({ actors, genre, year }) => {
+    console.log('Sending to backend:', actors, genre, year);
   
     try {
       const response = await fetch('http://localhost:3000/add_filter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          title: actors,  // Search query
-          year: year,     // Year filter
+          title: actors,
+          year: year,
         }),
       });
   
+      if (!response.ok) throw new Error('Failed to fetch data from backend');
+  
       const result = await response.json();
-      if (response.ok) {
-        console.log('Fetched Movies:', result.data);
+      console.log('Movies from backend:', result.data);
   
-        // Client-side filtering for genre
-        setMovieData([result.data]); 
-        setMovieData([filteredMovies]); // Set filtered movie data in state
-      } else {
-        console.error('Error:', result.error);
-      }
+      return result.data; // Directly return the fetched data
     } catch (error) {
-      console.error('Fetch error:', error);
+      console.error('Error in sendToBackend:', error);
+      return []; // Return empty array on error
     }
+  };
   
-  } 
-
-
-  const submitFilter = (data) => {
-     console.log('filter changed'); 
-     console.log(data); 
-    //  setFilters(data); 
-     sendToBackend(data); 
-  }
-
+  // Cleaned up submitFilter
+  const submitFilter = async (data) => {
+    console.log('Filters applied:', data);
+    const movies = await sendToBackend(data);
+    console.log(movies); 
+    if(movies){
+      updateMovieData(movies);
+    }
+    // Update state with fetched movies
+  };
+  
+  
   return (
     <div className='search-page'>
 
@@ -263,7 +262,7 @@ export default function SearchDashBoard() {
         </div>
 
         {/* Movie List component */}
-        <MoviesList moviesDs={moviesDs} updateMovieData={updateMovieData} userMovie={userMovie} searchQuery={searchQuery} />
+        <MoviesList  movieData={movieData} moviesDs={moviesDs} updateMovieData={updateMovieData} userMovie={userMovie} searchQuery={searchQuery} />
         {/* <MovieComponent movie={movieData} /> */}
     </div>
   );

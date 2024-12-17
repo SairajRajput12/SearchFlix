@@ -21,7 +21,9 @@ app.post('/add_filter',async(req,res) => {
     try {
       let query = `http://www.omdbapi.com/?apikey=${API_KEY}`;
       if (title) query += `&t=${encodeURIComponent(title)}`;
-      if (year) query += `&y=${year}`;
+      if (year !== '') query += `&y=${year}`;
+
+      console.log('final url is ',query); 
   
       const omdbResponse = await fetch(query);
       const data = await omdbResponse.json();
