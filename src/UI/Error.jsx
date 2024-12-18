@@ -1,10 +1,18 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
-const ErrorComponent = ({ errorCode, message }) => {
+
+
+const ErrorComponent = () => {
+  const location = useLocation(); 
+  const code = location.state?.errorCode || 404;
+  const errorMessage = location.state?.message || 'your requested route not found'; 
+
+
   return (
     <div style={styles.container}>
-      <h1 style={styles.errorCode}>{errorCode}</h1>
-      <p style={styles.message}>{message}</p>
+      <h1 style={styles.errorCode}>{code}</h1>
+      <p style={styles.message}>{errorMessage}</p>
       <a href="/" style={styles.homeLink}>Return to Home</a>
     </div>
   );
@@ -12,16 +20,18 @@ const ErrorComponent = ({ errorCode, message }) => {
 
 const styles = {
   container: {
-    backgroundColor: '#141414',
+    backgroundColor: ' rgba(0, 0, 0, 0.824)',
     color: '#ffffff',
     textAlign: 'center',
-    padding: '50px 20px',
+    // padding: '50px 20px',
     borderRadius: '8px',
-    maxWidth: '600px',
-    margin: '100px auto',
+    maxWidth: '100%', 
+    height:'100vh', 
+    // margin: '100px auto',
     fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif',
   },
   errorCode: {
+    paddingTop:'100px', 
     fontSize: '6rem',
     fontWeight: 'bold',
     margin: '0',

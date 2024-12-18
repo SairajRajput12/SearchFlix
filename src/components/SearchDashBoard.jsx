@@ -229,14 +229,14 @@ export default function SearchDashBoard() {
       const result = await response.json();
       console.log('Movies from backend:', result.data);
   
-      return result.data; // Directly return the fetched data
+      return result.data; 
     } catch (error) {
       console.error('Error in sendToBackend:', error);
-      return []; // Return empty array on error
+      return []; 
     }
   };
   
-  // Cleaned up submitFilter
+  
   const submitFilter = async (data) => {
     console.log('Filters applied:', data);
     const movies = await sendToBackend(data);
@@ -244,7 +244,7 @@ export default function SearchDashBoard() {
     if(movies){
       updateMovieData(movies);
     }
-    // Update state with fetched movies
+
   };
   
   

@@ -24,6 +24,7 @@ function App() {
           <Route path="/search/:names?" element={<SearchDashBoard />} />
           <Route path="/error" element={<ErrorComponent />} />
           <Route path="/movie/:id" element={<MovieComponent />} />
+          <Route path='*' element={<ErrorComponent />} />
         </Routes>
       )}
     </BrowserRouter>

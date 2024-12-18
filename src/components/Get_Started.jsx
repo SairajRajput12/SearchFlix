@@ -10,7 +10,7 @@ export default function Get_Started() {
   const navigate = useNavigate();
   const [searchInput, setSearchInput] = useState('');
   const [currentText, setCurrentText] = useState(0);
-  const [loading, setLoading] = useState(false); // Manage loading state
+  const [loading, setLoading] = useState(false);
 
   const textArray = [
     'Unlimited movies Data, TV shows and more',
@@ -35,9 +35,13 @@ export default function Get_Started() {
         body: JSON.stringify({ title: searchInput }),
       });
 
-      if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+      if (!response.ok){
+        alert('your requested movie not found in our database.Hope you will love below recommendations');
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      } 
 
       const result = await response.json();
+       
       console.log(result);
       return result;
     } catch (error) {
@@ -53,7 +57,6 @@ export default function Get_Started() {
         const data = await getData();
         navigate(`/search/${searchInput}`, { state: { searchQuery: searchInput, data: data?.data } });
       } catch (error) {
-        console.error('Error fetching data:', error);
         navigate(`/search/${searchInput}`, { state: { searchQuery: searchInput, data: undefined } });
       } finally {
         setLoading(false); 

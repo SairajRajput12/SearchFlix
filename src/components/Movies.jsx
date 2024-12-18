@@ -3,13 +3,7 @@ import './MoviesList.css';
 import Button from '../UI/Button';
 import { useNavigate } from 'react-router-dom';
 
-export default function MoviesList({
-  updateMovieData,
-  movieData,
-  searchQuery,
-  userMovie,
-  moviesDs,
-}) {
+export default function MoviesList({updateMovieData,movieData,searchQuery,userMovie,moviesDs}) {
   const navigate = useNavigate();
 
   let headerContent = '';
@@ -19,11 +13,10 @@ export default function MoviesList({
     headerContent = `Here are recommended movies for ${searchQuery}`;
   }
 
-  // Use useEffect to update movie data when userMovie changes
   useEffect(() => {
     if (userMovie && userMovie !== '') {
       console.log('Updating movie data with userMovie:', userMovie);
-      updateMovieData([userMovie]); // Only update when necessary
+      updateMovieData([userMovie]); 
     }
   }, []);
 
@@ -31,7 +24,6 @@ export default function MoviesList({
     navigate(`/movie/${index}`, { state: { movieData: movie } });
   };
 
-  // Use moviesDs directly if userMovie is not set
   const movies = userMovie && userMovie !== '' ? [userMovie] : moviesDs;
 
   return (
