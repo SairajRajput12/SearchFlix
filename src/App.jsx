@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import LoadingComponent from './UI/Loading';
 import NetflixStartingComponent from './components/NetflixStartingComponent';
 import SearchDashBoard from './components/SearchDashBoard';
@@ -15,19 +15,19 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
-      {loading ? (
-        <LoadingComponent />
-      ) : (
-        <Routes>
-          <Route path="/" element={<NetflixStartingComponent />} />
-          <Route path="/search/:names?" element={<SearchDashBoard />} />
-          <Route path="/error" element={<ErrorComponent />} />
-          <Route path="/movie/:id" element={<MovieComponent />} />
-          <Route path='*' element={<ErrorComponent />} />
-        </Routes>
-      )}
-    </BrowserRouter>
+    <HashRouter>
+        {loading ? (
+          <LoadingComponent />
+        ) : (
+          <Routes>
+            <Route path="/" element={<NetflixStartingComponent />} />
+            <Route path="/search/:names?" element={<SearchDashBoard />} />
+            <Route path="/error" element={<ErrorComponent />} />
+            <Route path="/movie/:id" element={<MovieComponent />} />
+            <Route path='*' element={<ErrorComponent />} />
+          </Routes>
+        )}
+    </HashRouter>
   );
 }
 
