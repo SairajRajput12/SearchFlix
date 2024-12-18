@@ -29,7 +29,7 @@ export default function Get_Started() {
   const getData = async () => {
     console.log('fetching data');
     try {
-      const response = await fetch('http://localhost:3000/fetch_request', {
+      const response = await fetch('https://searchflix-backend.onrender.com/fetch_request', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: searchInput }),

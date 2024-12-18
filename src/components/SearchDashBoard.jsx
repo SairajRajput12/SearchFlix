@@ -26,7 +26,7 @@ const moviesDs = [
     Language: 'English, Japanese, French',
     Country: 'United States',
     Awards: '4 Oscars, 157 wins & 220 nominations',
-    Poster: '/inception.jpg',
+    Poster: 'inception.jpg',
     Ratings: [
       { Source: 'Internet Movie Database', Value: '8.8/10' },
       { Source: 'Rotten Tomatoes', Value: '87%' },
@@ -48,7 +48,7 @@ const moviesDs = [
     Language: 'English, Mandarin',
     Country: 'United States',
     Awards: '2 Oscars, 159 wins & 220 nominations',
-    Poster: '/dark_knight.jpg',
+    Poster: 'dark_knight.jpg',
     Ratings: [
       { Source: 'Internet Movie Database', Value: '9.0/10' },
       { Source: 'Rotten Tomatoes', Value: '94%' },
@@ -70,7 +70,7 @@ const moviesDs = [
     Language: 'English',
     Country: 'United States, United Kingdom',
     Awards: '1 Oscar, 44 wins & 144 nominations',
-    Poster: '/Interstellar.jpg',
+    Poster: 'Interstellar.jpg',
     Ratings: [
       { Source: 'Internet Movie Database', Value: '8.6/10' },
       { Source: 'Rotten Tomatoes', Value: '72%' },
@@ -92,7 +92,7 @@ const moviesDs = [
     Language: 'Telugu, Hindi',
     Country: 'India',
     Awards: '10 wins & 20 nominations',
-    Poster: '/pushpa.jpg',
+    Poster: 'pushpa.jpg',
     Ratings: [
       { Source: 'Internet Movie Database', Value: '7.6/10' },
       { Source: 'Rotten Tomatoes', Value: '88%' },
@@ -113,7 +113,7 @@ const moviesDs = [
     Language: 'Kannada, Hindi',
     Country: 'India',
     Awards: '5 wins & 14 nominations',
-    Poster: '/KGF2.jpg',
+    Poster: 'KGF2.jpg',
     Ratings: [
       { Source: 'Internet Movie Database', Value: '8.4/10' },
       { Source: 'Rotten Tomatoes', Value: '90%' },
@@ -134,7 +134,7 @@ const moviesDs = [
     Language: 'English',
     Country: 'United States',
     Awards: '1 Oscar, 70 wins & 122 nominations',
-    Poster: '/end_game.jpg',
+    Poster: 'end_game.jpg',
     Ratings: [
       { Source: 'Internet Movie Database', Value: '8.4/10' },
       { Source: 'Rotten Tomatoes', Value: '94%' },
@@ -155,7 +155,7 @@ const moviesDs = [
     Language: 'English',
     Country: 'United States',
     Awards: '2 Oscar nominations, 21 wins & 72 nominations',
-    Poster: '/iron_man.jpg',
+    Poster: 'iron_man.jpg',
     Ratings: [
       { Source: 'Internet Movie Database', Value: '7.9/10' },
       { Source: 'Rotten Tomatoes', Value: '94%' },
@@ -176,7 +176,7 @@ const moviesDs = [
     Language: 'Kannada',
     Country: 'India',
     Awards: '4 wins & 9 nominations',
-    Poster: '/kgf.jpg',
+    Poster: 'kgf.jpg',
     Ratings: [
       { Source: 'Internet Movie Database', Value: '8.2/10' },
       { Source: 'Rotten Tomatoes', Value: '88%' },
@@ -215,7 +215,7 @@ export default function SearchDashBoard() {
     console.log('Sending to backend:', actors, genre, year);
   
     try {
-      const response = await fetch('http://localhost:3000/add_filter', {
+      const response = await fetch('https://searchflix-backend.onrender.com/add_filter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
